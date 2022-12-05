@@ -125,7 +125,7 @@ IDS_data_panel <- ggarrange(IDS_data_violinplot, IDS_data_ridgeplot, nrow = 1,  
 IDS_data_panel
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
 ggsave("IDS_data_panel.tiff", IDS_data_panel, dpi = 600)
@@ -178,7 +178,7 @@ summary(IDS_model)
 plot(IDS_model)
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ##### Inspect plots of observed data and posterior predictive samples
 
@@ -188,7 +188,7 @@ pp_check(IDS_model)
 
     ## Using 10 posterior draws for ppc type 'dens_overlay' by default.
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
 pp_check(IDS_model, type = "error_binned")
@@ -196,7 +196,7 @@ pp_check(IDS_model, type = "error_binned")
 
     ## Using 10 posterior draws for ppc type 'error_binned' by default.
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
 ##### Simpler model without Elevation as Predictor
 
@@ -294,7 +294,7 @@ SA_data_violinplot <- ggplot(SA_databinary, aes(x = Colex, y = Elevation))  +
 SA_data_violinplot 
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 ``` r
 SA_data_ridgeplot <- ggplot(SA_databinary %>% group_by(Family) %>% filter(n() > 2), 
@@ -317,7 +317,7 @@ SA_data_ridgeplot
 
     ## Picking joint bandwidth of 178
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
 
 ``` r
 SA_data_panel <- ggarrange(SA_data_violinplot, SA_data_ridgeplot, nrow = 1,  common.legend = TRUE, legend = "bottom", font.label = list(size = 12))
@@ -329,7 +329,7 @@ SA_data_panel <- ggarrange(SA_data_violinplot, SA_data_ridgeplot, nrow = 1,  com
 SA_data_panel
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-23-3.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-23-3.png)<!-- -->
 
 ``` r
 ggsave("SA_data_panel.tiff", SA_data_panel, dpi = 600)
@@ -382,7 +382,7 @@ summary(SA_databinarymodel)
 plot(SA_databinarymodel)
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ##### Inspect plots of observed data and posterior predictive samples
 
@@ -392,7 +392,7 @@ pp_check(SA_databinarymodel)
 
     ## Using 10 posterior draws for ppc type 'dens_overlay' by default.
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ``` r
 pp_check(SA_databinarymodel, type = "error_binned")
@@ -400,7 +400,7 @@ pp_check(SA_databinarymodel, type = "error_binned")
 
     ## Using 10 posterior draws for ppc type 'error_binned' by default.
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
 
 ##### Simpler model without Elevation as Predictor
 
@@ -462,7 +462,7 @@ summary(SA_databinarymodelalt)
 plot(SA_databinarymodelalt)
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 ##### Inspect plots of observed data and posterior predictive samples
 
@@ -472,7 +472,7 @@ pp_check(SA_databinarymodelalt)
 
     ## Using 10 posterior draws for ppc type 'dens_overlay' by default.
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->
 
 ``` r
 pp_check(SA_databinarymodelalt, type = "error_binned")
@@ -480,7 +480,7 @@ pp_check(SA_databinarymodelalt, type = "error_binned")
 
     ## Using 10 posterior draws for ppc type 'error_binned' by default.
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->
 
 #### Resampling and randomization test
 
@@ -549,7 +549,7 @@ resampling_ggplot<- ggplot() +
 resampling_ggplot
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
 
 ``` r
 save_plot("resampling_boxplot.tiff", resampling_ggplot, base_width = 10, base_height = 6, dpi = 300)
@@ -620,7 +620,7 @@ summary(arawakanmodel)
 plot(arawakanmodel)
 ```
 
-![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-42-1.png)<!-- -->![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-42-2.png)<!-- -->![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-42-3.png)<!-- -->![](cloudfog-analysis-2_files/figure-gfm/unnamed-chunk-42-4.png)<!-- -->
+![](analysis_files/figure-gfm/unnamed-chunk-42-1.png)<!-- -->![](analysis_files/figure-gfm/unnamed-chunk-42-2.png)<!-- -->![](analysis_files/figure-gfm/unnamed-chunk-42-3.png)<!-- -->![](analysis_files/figure-gfm/unnamed-chunk-42-4.png)<!-- -->
 
 ##### Check overdispersion…not great but ok.
 
