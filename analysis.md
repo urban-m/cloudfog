@@ -138,35 +138,6 @@ ggsave("IDS_data_panel.tiff", IDS_data_panel, dpi = 600)
 
     ## Saving 7 x 5 in image
 
-SA_data_violinplot \<- ggplot(SA_databinary, aes(x = Colex, y =
-Elevation)) + geom_violin() + theme_minimal() + ggtitle(“Whole South
-American sample”) + theme(plot.title = element_text(hjust = 0, size =
-12, face = “bold”), legend.title =  
-element_blank(), legend.text = element_text(size = 12)) +
-theme(axis.title = element_text(size = 12)) + scale_x\_discrete(labels =
-c(““,”“)) + geom_dotplot(aes(fill = Colex), color = NA, binaxis = ‘y’,
-stackdir = ‘center’, binwidth = 65, stackratio = 0.8, dotsize=1.2) +
-xlab(”“) + ylab(”Elevation (masl)“) SA_data_violinplot
-
-SA_data_ridgeplot \<- ggplot(SA_databinary %\>% group_by(Family) %\>%
-filter(n() \> 2), aes(x = Elevation, y = fct_reorder(Family, Elevation,
-.desc = TRUE))) + theme_ridges() + ggtitle(“Ridgeplots by family”) +
-theme(plot.title = element_text(hjust = 0, size = 12), legend.title =
-element_blank(), legend.text =  
-element_text(size = 12)) + theme(axis.text=element_text(size=10)) +
-geom_density_ridges( aes(point_color = Colex, point_fill = Colex),
-jittered_points = TRUE, alpha = 0.3, point_alpha = 1, point_size = 1.3,
-scale=0.85) + geom_point(data = subset(SA_databinary, Family ==
-“Aymaran”), aes(x = Elevation), position =  
-position_nudge(y = 0.2), size = 1.2, color = “cyan”) + labs (x =
-“Elevation (masl)”, y = ““) + scale_x\_continuous(expand = c(0, 0)) +
-scale_y\_discrete(expand = c(0, 0)) SA_data_ridgeplot
-
-SA_data_panel \<- ggarrange(SA_data_violinplot, SA_data_ridgeplot, nrow
-= 1, common.legend = TRUE, legend = “bottom”, font.label = list(size =
-12)) SA_data_panel ggsave(“SA_data_panel.tiff”, SA_data_panel, dpi =
-600)
-
 #### Bayesian Mixed Effects Modelling
 
 ##### Set priors and build model
@@ -340,7 +311,7 @@ SA_data_ridgeplot <- ggplot(SA_databinary %>% group_by(Family) %>% filter(n() > 
   aes(point_color = Colex, point_fill = Colex), jittered_points = TRUE, alpha = 0.3, point_alpha 
      = 1, point_size = 1.3, scale=0.85) +
   geom_point(data = subset(SA_databinary, Family == "Aymaran"), aes(x = Elevation), position =   
-  position_nudge(y = 0.2), size = 1.2, color = "cyan") +
+  position_nudge(y = 0.2), size = 1.2, color = "#00BFC4") +
   labs (x = "Elevation (masl)", y = "") +
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_discrete(expand = c(0, 0))

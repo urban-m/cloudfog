@@ -1,5 +1,5 @@
 ---
-title: 'Code for "Foggy connections: on the (non-)adaptation of lexical structures",
+title: 'Code for "Foggy connections, cloudy frontiers: on the (non-)adaptation of lexical structures",
   Frontiers in Psychology'
 author: "Matthias Urban"
 date: "`r Sys.Date()`"
@@ -8,7 +8,7 @@ output: github_document
 
 ### Overview
 
-This document provides code to run the analyses reported in the article "Foggy connections: on the (non-)adaptation of lexical structures". 
+This document provides code to run the analyses reported in the article "Foggy connections, cloudy frontiers: on the (non-)adaptation of lexical structures". Frontiers in Psychology. 14:1115832. doi: 10.3389/fpsyg.2023.1115832
 
 ### Required datasets
 • DEM model in file ""ETOPO_2022_v1_30s_N90W180_bed.tif""
@@ -221,14 +221,14 @@ SA_data_ridgeplot <- ggplot(SA_databinary %>% group_by(Family) %>% filter(n() > 
   aes(x = Elevation, y = fct_reorder(Family, Elevation, .desc = TRUE))) +
   theme_ridges() +
   ggtitle("Ridgeplots by family") +
-  theme(plot.title = element_text(hjust = -1), legend.title = element_blank(), legend.text =   
+  theme(plot.title = element_text(hjust = 0, size = 12), legend.title = element_blank(), legend.text =   
       element_text(size = 12)) +
   theme(axis.text=element_text(size=10)) +
   geom_density_ridges(
   aes(point_color = Colex, point_fill = Colex), jittered_points = TRUE, alpha = 0.3, point_alpha 
      = 1, point_size = 1.3, scale=0.85) +
   geom_point(data = subset(SA_databinary, Family == "Aymaran"), aes(x = Elevation), position =   
-  position_nudge(y = 0.2), size = 1.2, color = "cyan") +
+  position_nudge(y = 0.2), size = 1.2, color = "#00BFC4") +
   labs (x = "Elevation (masl)", y = "") +
   scale_x_continuous(expand = c(0, 0)) +
   scale_y_discrete(expand = c(0, 0))
@@ -360,7 +360,7 @@ resample_means<-unlist(resample_means)
 resampling_ggplot<- ggplot() +
   geom_histogram(aes(sim_means), fill ="cyan", binwidth = 20, color = "gray", alpha = 0.3) +
   geom_histogram(aes(resample_means), fill = "red", , binwidth = 20, color = "gray", alpha = 0.3) +
-  xlab("Mean elevation of samples. Simulated data in cyan, observed data in red") +
+  xlab("Difference in mean elevation of colexifying and distinguishing languages. Simulated data in cyan, observed data in red") +
   ylab("Number of observations") +
   theme_minimal()
 
@@ -382,7 +382,7 @@ arawakan <- filter(SA_databinary, Family == 'Arawakan')
 
 ##### Build model
 ```{r}
-arawakanmodel <- glm(Value ~ LogElevation, family = 'binomial', data = arawakan)
+arawakanmodel <- glm(Value ~ LogElevation, family = 'binomial', data = arawakan) 
 ``` 
 
 ##### Check results
